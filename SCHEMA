@@ -1,0 +1,45 @@
+RESPONSE SCHEMA
+ id	
+string
+Unique identifier representing a specific film
+
+ title	
+string
+Title of the film
+
+
+ description	
+string
+Description of the film
+
+ director	
+string
+Director of the film
+
+
+ release_date	
+string
+Release year of film
+
+ running_time	
+string
+Running time of the film in minutes
+
+
+ characters	
+array of string
+characters found in film
+
+
+
+ locations	
+array of string
+Locations found in film
+
+ vehicles	
+array of string
+Vehicles found in film
+
+ url	
+string
+URL of film
