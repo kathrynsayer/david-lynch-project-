@@ -1,13 +1,8 @@
-import express from "express";
-
+import FilmsRouter from "./films.routes";
+import express from "express"
 const router = express.Router();
 
-router.get("/films", (req, res, next) => {
-  res.send("films will go here");
-});
+router.use("/films", FilmsRouter);
 
-router.get("/films/filmid", (req, res, next) => {
-  res.send("specific films here");
-})
+
 export default router;
-

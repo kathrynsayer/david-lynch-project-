@@ -12,10 +12,6 @@ Title of the film
 string
 Description of the film
 
- director	
-string
-Director of the film
-
 
  release_date	
 string
@@ -40,6 +36,6 @@ Locations found in film
 array of string
 Vehicles found in film
 
- url	
+ url/image	
 string
 URL of film
