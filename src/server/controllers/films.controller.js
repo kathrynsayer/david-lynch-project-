@@ -1,11 +1,11 @@
 import query from "../db/utils";
 
 const findAll = async () => {
-  return await query("SELECT Title, Description, ReleaseYear, RunningTime, PosterImageURL FROM Films");
+  return await query("SELECT FilmId, Title, Description, ReleaseYear, RunningTime, PosterImageURL FROM Films");
 };
 
 const findOne = async (FilmId) => {
-  return query("SELECT Title, Description, ReleaseYear, RunningTime, PosterImageURL FROM Films WHERE FilmId = ?", [
+  return query("SELECT  FilmId, Title, Description, ReleaseYear, RunningTime, PosterImageURL FROM Films WHERE FilmId = ?", [
     FilmId,
   ]);
 };
