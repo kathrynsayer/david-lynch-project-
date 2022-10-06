@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Rouge+Script&family=Sorts+Mill+Goudy&display=swap');
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: calc(10px + 2vmin);
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.Homepage {
+  min-height: 100vh;
+  color: white;
+  background-size: cover;
+  font-family: 'Rouge Script', cursive;
+
+}
+
+.singleFilm {
+  min-height: 100vh;
+  color: white;
+  background-size: cover;
+  font-family: 'Sorts Mill Goudy', serif;
+}

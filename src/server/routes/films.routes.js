@@ -3,12 +3,13 @@ import Films from "../controllers/films.controller";
 
 const router = express.Router();
 
-router.get("/", async (req, res, next) => {
-  let { id } = req.params;
+router.get("/:movieId?", async (req, res, next) => {
+  let { movieId } = req.params;
+  console.log("like this?", movieId)
   let data;
 
-  if (id) {
-    data = await Films.findOne(id);
+  if (movieId) {
+    data = await Films.findOne(movieId);
   } else {
     data = await Films.findAll();
   }

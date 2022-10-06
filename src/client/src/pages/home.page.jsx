@@ -15,12 +15,11 @@ function HomePage() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="Homepage" style={{ backgroundImage: 'url(/img/bluevelvetbackground.jpeg)' }} > 
       <header>
         <h1>Welcome to the David Lynch Filmography</h1>
         <ul>
         {testState.map((film) => {
-            console.log(film)
           return <li key={film.FilmId}>
             <Link to={`/films/${film.FilmId}`}>{film.Title}</Link>
           </li>

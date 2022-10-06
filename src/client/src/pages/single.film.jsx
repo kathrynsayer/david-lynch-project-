@@ -1,61 +1,89 @@
 import { useState, useEffect } from "react";
-import {useParams} from "react-router-dom"; 
+import { useParams } from "react-router-dom";
 
-useEffect(() => {
-    fetch("http://localhost:5001/api/films")
-      .then((res) => res.json())
-      .then((data) => setTestState(data))
-      .catch((err) => {
-        console.error(err);
-        setTestState("Could not connect to test api endpoint :(");
-      });
-  }, []);
+function SingleFilmPage(props) {
+    let [movie, setMovie] = useState(null);
+    let { id } = useParams();
+    let [count, setCount] = useState(Number(id));
+    console.log("this is count", count)
+    let [list, setList] = useState([]);
 
-// function SingleFilmPage(props) {
-//     let [item, setItem] = useState({})
+    // useEffect(() => {
+    //     fetch(`http://localhost:5001/api/films/${id}`)
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             setMovie(data[0])
+    //         })
+    //         .catch((err) => {
+    //             console.error(err);
+    //             setMovie("Could not connect to test api endpoint :(");
+    //         });
+    // }, []);
+    async function fetchFilms () {
+        let res = await fetch(`http://localhost:5001/api/films/`);
+        let data = await res.json();
+        setList(data)
+    }
 
-//     let { id } = useParams();
+    function findFilm() {
+        setMovie(list.find((mov) => mov.FilmId == count));
+        console.log("list", list, "movie", movie)
+    }
 
-//     function getFilm() {
-//         fetch(`http://localhost:5001/api/films/${id}`)
-//     .then((res) => res.json())
-//     .then((film) => setItem(film))
-//     .catch((err) => console.error(err));
-//     }
+    useEffect(() => {
+        if (list.length == 0) fetchFilms();
+        else findFilm();
+    }, [count, list]);
 
-// useEffect(() => {
-//     getFilm()
 
-// }, []);
+    function nextMovie() {
+        if (count >= 10) {
+            setCount(1);
+        } else {
+            setCount(count + 1);
+        }
+    }
+    function lastMovie() {
+        if (count == 1) {
+            setCount(10);
+        } else {
+            setCount(count - 1);
+        }
+    }
 
-    return (
-        <div>
-  <div>
-    <img src={`${item.image}`} alt={`${item.title} Poster`} />
-  </div>
-  <div>
-    <h1>{item.title}</h1>
-    <p>
-      Directed by {item.director}. Produced by {item.producer}.
-    </p>
-    <p>
-      The film was released in <strong>{item.release_date}</strong> and garnered
-      a <strong>{item.rt_score}</strong> aggregate score on{" "}
-      <a
-        href="https://www.rottentomatoes.com/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Rotten Tomatoes
-      </a>
-      .
-    </p>
-    <h2>Description</h2>
-    <p>{item.description}</p>
-  </div>
-</div>
-    );
+    if (movie) {
+        let moviePath = movie.PosterImageURL.slice(2);
 
+        return (
+            <div className="singleFilm" style={{ backgroundImage: 'url(/img/redroom.jpeg)' }} >
+                <div>
+                    <img src={require(`../images/${moviePath}`)} alt={`${movie.Title} Poster`} />
+                </div>
+                <div>
+                    <h1>{movie.Title} ({movie.ReleaseYear})</h1>
+                    <h2></h2>
+                    <p>{movie.Description}</p>
+                    <p>{movie.RunningTime} minutes. </p>
+
+                    <div id="dirPadRight">
+                        <button
+                            id="dirPadRightButton"
+                            className="invisible-button"
+                            onClick={nextMovie}
+                        >
+                        </button>
+                    </div>
+                    <div id="dirPadLeft">
+                        <button
+                            id="dirPadLeftButton"
+                            className="invisible-button"
+                            onClick={lastMovie}
+                        > butt
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }
-
 export default SingleFilmPage;

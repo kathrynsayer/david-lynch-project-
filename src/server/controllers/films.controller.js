@@ -5,10 +5,9 @@ const findAll = async () => {
 };
 
 const findOne = async (FilmId) => {
-  return query("SELECT  FilmId, Title, Description, ReleaseYear, RunningTime, PosterImageURL FROM Films WHERE FilmId = ?", [
-    FilmId,
-  ]);
+  return query("SELECT  FilmId, Title, Description, ReleaseYear, RunningTime, PosterImageURL FROM Films WHERE FilmId = ?", [FilmId,]);
 };
+
 const addOne = async (film) => {
   return await query("INSERT INTO Films SET ?", [film]);
 };
