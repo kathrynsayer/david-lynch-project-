@@ -67,18 +67,16 @@ function SingleFilmPage(props) {
 
                     <div id="dirPadRight">
                         <button
-                            id="dirPadRightButton"
-                            className="invisible-button"
+                            id="rightButton"
                             onClick={nextMovie}
-                        >
+                        >next
                         </button>
                     </div>
                     <div id="dirPadLeft">
                         <button
-                            id="dirPadLeftButton"
-                            className="invisible-button"
+                            id="leftButton"
                             onClick={lastMovie}
-                        > butt
+                        > previous
                         </button>
                     </div>
                 </div>
