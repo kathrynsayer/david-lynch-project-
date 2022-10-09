@@ -19,7 +19,7 @@ function SingleFilmPage(props) {
     //             setMovie("Could not connect to test api endpoint :(");
     //         });
     // }, []);
-    async function fetchFilms () {
+    async function fetchFilms() {
         let res = await fetch(`http://localhost:5001/api/films/`);
         let data = await res.json();
         setList(data)
@@ -56,30 +56,34 @@ function SingleFilmPage(props) {
 
         return (
             <div className="singleFilm" style={{ backgroundImage: 'url(/img/redroom.jpeg)' }} >
-                <div>
-                    <img src={require(`../images/${moviePath}`)} alt={`${movie.Title} Poster`} />
+                {/* <div id="singleFilmGrid"> */}
+                <div className="imageDiv">
+                    <img id="tvImage" src={require(`../images/${moviePath}`)} alt={`${movie.Title} Poster`} />
                 </div>
-                <div>
-                    <h1>{movie.Title} ({movie.ReleaseYear})</h1>
-                    <h2></h2>
-                    <p>{movie.Description}</p>
-                    <p>{movie.RunningTime} minutes. </p>
+                <div id="tvContainer">
+                    <img id="tvFrame" src={require(`../images/NicePng_tv-png_2820738.png`)} alt="tv frame" />
+                </div>
 
-                    <div id="dirPadRight">
-                        <button
-                            id="rightButton"
-                            onClick={nextMovie}
-                        >next
-                        </button>
-                    </div>
-                    <div id="dirPadLeft">
-                        <button
-                            id="leftButton"
-                            onClick={lastMovie}
-                        > previous
-                        </button>
-                    </div>
+                <div id="right-button-container">
+                    <button
+                        id="right-button"
+                        onClick={nextMovie}
+                    >next
+                    </button>
                 </div>
+                <div id="left-button-container">
+                    <button
+                        id="left-button"
+                        onClick={lastMovie}
+                    > previous
+                    </button>
+                </div>
+                <div className="text">
+                    <h1>{movie.Title} ({movie.ReleaseYear})</h1>
+                    <p>{movie.Description} {movie.RunningTime} minutes. </p>
+
+                </div>
+                {/* </div> */}
             </div>
         );
     }
