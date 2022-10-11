@@ -55,35 +55,36 @@ function SingleFilmPage(props) {
         let moviePath = movie.PosterImageURL.slice(2);
 
         return (
-            <div className="singleFilm" style={{ backgroundImage: 'url(/img/redroom.jpeg)' }} >
-                {/* <div id="singleFilmGrid"> */}
-                <div className="imageDiv">
-                    <img id="tvImage" src={require(`../images/${moviePath}`)} alt={`${movie.Title} Poster`} />
-                </div>
-                <div id="tvContainer">
-                    <img id="tvFrame" src={require(`../images/NicePng_tv-png_2820738.png`)} alt="tv frame" />
-                </div>
+            <div className="singleFilm" >
+                <div id="singleFilmGrid" style={{ backgroundImage: 'url(/img/redroom.jpeg)' }} >
+                    <div className="imageDiv">
+                        <img id="tvImage" src={require(`../images/${moviePath}`)} alt={`${movie.Title} Poster`} />
+                    </div>
+                    <div id="tvContainer">
+                        <img id="tvFrame" src={require(`../images/NicePng_tv-png_2820738.png`)} alt="tv frame" />
+                    </div>
 
-                <div id="right-button-container">
-                    <button
-                        id="right-button"
-                        onClick={nextMovie}
-                    >next
-                    </button>
-                </div>
-                <div id="left-button-container">
-                    <button
-                        id="left-button"
-                        onClick={lastMovie}
-                    > previous
-                    </button>
+                    <div id="right-button-container">
+                        <button
+                            id="right-button"
+                            onClick={nextMovie}
+                        >next
+                        </button>
+                    </div>
+                    <div id="left-button-container">
+                        <button
+                            id="left-button"
+                            onClick={lastMovie}
+                        > previous
+                        </button>
+                    </div>
+
                 </div>
                 <div className="text">
                     <h1>{movie.Title} ({movie.ReleaseYear})</h1>
                     <p>{movie.Description} {movie.RunningTime} minutes. </p>
 
                 </div>
-                {/* </div> */}
             </div>
         );
     }

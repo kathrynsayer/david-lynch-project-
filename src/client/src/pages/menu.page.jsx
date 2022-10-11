@@ -14,9 +14,7 @@ function MenuPage() {
       });
   }, []);
 
-  // if (movie) {
-  //     let moviePath = movie.PosterImageURL.slice(2);
-  
+
 
   return (
     < div className="MenuPage" style={{ backgroundImage: 'url(/img/bluevelvetbackground.jpeg)' }} >
@@ -24,9 +22,12 @@ function MenuPage() {
         <h1>Please select a film to learn more</h1>
         <ul>
           {testState.map((film) => {
+
+      let moviePath = film.PosterImageURL.slice(2);
+
             return <li key={film.FilmId}>
               <Link to={`/films/${film.FilmId}`}>
-                {/* <img id="tvImage" src={require(`../images/${moviePath}`)} alt={`${movie.Title} Poster`} /> */}
+                <img id="tvImage" src={require(`../images/${moviePath}`)} alt={`${film.Title} Poster`} />
               </Link>
             </li>
           })}
