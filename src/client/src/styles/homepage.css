@@ -90,14 +90,14 @@ box-sizing: border-box;
 
 }
 
-#left-button-container {
+#big-left-button-container {
   grid-row: 2;
   grid-column: 1;
   align-self: center;
   justify-self: center;
 }
 
-#left-button {
+#big-left-button {
   background-color: rgb(17, 17, 66);
   color: white;
   font-family: 'Sorts Mill Goudy', serif;
@@ -108,14 +108,14 @@ box-sizing: border-box;
   cursor: pointer;
 }
 
-#right-button-container {
+#big-right-button-container {
   grid-row: 2;
   grid-column: 3;
   align-self: center;
   justify-self: center;
 }
 
-#right-button {
+#big-right-button {
   background-color: rgb(17, 17, 66);
   color: white;
   font-family: 'Sorts Mill Goudy', serif;
@@ -132,6 +132,15 @@ box-sizing: border-box;
   font-size: .8rem;
 }
 
+#small-right-button {
+  visibility: hidden;
+}
+
+#small-left-button {
+  visibility: hidden;
+}
+
+
 /*  -------- MEDIA QUERY -------- */
 @media(max-width: 500px) {
 
@@ -140,22 +149,45 @@ box-sizing: border-box;
     grid-template-rows: 1fr 7fr 1fr;
   }
 
-  #left-button-container {
-    grid-row: 3;
-    grid-column: 2;
+  #small-left-button-container {
     align-self: center;
-    justify-self: center;
+    justify-self: left;
   }
 
-  #right-button-container {
-    grid-row: 3;
-    grid-column: 2;
+  #small-right-button-container {
     align-self: center;
-    justify-self: center;
+    justify-self: right;
   }
 
   .text {
     font-size: 1rem;
-  }
+    }
 
+#big-right-button {
+    visibility: hidden;
+}
+
+#big-left-button {
+  visibility: hidden;
+}
+
+#small-right-button {
+  visibility: visible; 
+  content: '>';
+  color: white;
+  font-family: 'Sorts Mill Goudy', serif;
+  font-size: .7rem;
+  background: transparent;
+  border: none !important;
+}
+
+#small-left-button {
+  visibility: visible; 
+  content: '>';
+  color: white;
+  font-family: 'Sorts Mill Goudy', serif;
+  font-size: .7rem;
+  background: cover;
+  border: none !important;
+}
 }

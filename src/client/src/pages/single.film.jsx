@@ -64,26 +64,36 @@ function SingleFilmPage(props) {
                         <img id="tvFrame" src={require(`../images/NicePng_tv-png_2820738.png`)} alt="tv frame" />
                     </div>
 
-                    <div id="right-button-container">
+                    <div id="big-right-button-container">
                         <button
-                            id="right-button"
+                            id="big-right-button"
                             onClick={nextMovie}
                         >next
                         </button>
                     </div>
-                    <div id="left-button-container">
+                    <div id="big-left-button-container">
                         <button
-                            id="left-button"
+                            id="big-left-button"
                             onClick={lastMovie}
                         > previous
                         </button>
                     </div>
-
                 </div>
                 <div className="text">
                     <h1>{movie.Title} ({movie.ReleaseYear})</h1>
                     <p>{movie.Description} {movie.RunningTime} minutes. </p>
-
+                    <div id="small-right-button-container">
+                        <button
+                            id="small-right-button"
+                            onClick={nextMovie}
+                            >img={require(`../images/right_button.png`)}</button>
+                    </div>
+                    <div id="small-left-button-container">
+                        <button
+                            id="small-left-button"
+                            onClick={lastMovie}
+                            >img={require(`../images/left_button.png`)}</button>
+                    </div>
                 </div>
             </div>
         );

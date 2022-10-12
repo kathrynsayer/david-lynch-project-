@@ -24,6 +24,7 @@ function MenuPage() {
           {testState.map((film) => {
 
       let moviePath = film.PosterImageURL.slice(2);
+console.log(film)
 
             return <li key={film.FilmId}>
               <Link to={`/films/${film.FilmId}`}>

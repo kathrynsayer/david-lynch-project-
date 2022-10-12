@@ -53,6 +53,6 @@ app.use(errorHandler);
  * Bind the app to a specified port
  * You can access your app at http://localhost:<port>
  */
-app.listen(config.port || 8080, () =>
+app.listen(config.port || 5001, () =>
   console.log(`Server listening on port ${config.port}...`)
 );
