@@ -2,17 +2,18 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function MenuPage() {
-  let [testState, setTestState] = useState([]);
+  let [filmsArray, setFilmsArray] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:5001/api/films")
       .then((res) => res.json())
-      .then((data) => setTestState(data))
+      .then((data) => setFilmsArray(data))
       .catch((err) => {
         console.error(err);
-        setTestState("Could not connect to test api endpoint :(");
+        setFilmsArray("Could not connect to test api endpoint :(");
       });
   }, []);
+  console.log(filmsArray)
 
 
 
@@ -21,14 +22,14 @@ function MenuPage() {
       <header>
         <h1>Please select a film to learn more</h1>
         <ul>
-          {testState.map((film) => {
+          {filmsArray.map((movie) => {
 
-      let moviePath = film.PosterImageURL.slice(2);
-console.log(film)
+            let moviePath = movie.PosterImageURL.slice(2);
 
-            return <li key={film.FilmId}>
-              <Link to={`/films/${film.FilmId}`}>
-                <img id="tvImage" src={require(`../images/${moviePath}`)} alt={`${film.Title} Poster`} />
+
+            return <li key={movie.FilmId}>
+              <Link to={`/films/${movie.FilmId}`}>
+                <img id="tvImage" src={require(`../images/${moviePath}`)} alt={`${movie.Title} Poster`} />
               </Link>
             </li>
           })}

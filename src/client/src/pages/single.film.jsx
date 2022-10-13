@@ -91,8 +91,8 @@ function SingleFilmPage(props) {
                     <div id="small-left-button-container">
                         <button
                             id="small-left-button"
-                            onClick={lastMovie}
-                            >img={require(`../images/left_button.png`)}</button>
+                            onClick={lastMovie}>
+                            previous</button>
                     </div>
                 </div>
             </div>
